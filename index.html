@@ -73,14 +73,18 @@
 
     btnSend.addEventListener('click', () => {
       let txtNombre = document.getElementById('txtNombre').value;
-      let txtCodigo = document.getElementById('txtCodigo').value;
+      let txtCodigo = parseInt(document.getElementById('txtCodigo').value);
       let txtPrecio = document.getElementById('txtPrecio').value;
       let txtCantidad = document.getElementById('txtCantidad').value;
       //Creacion de un nuevo producto:
       const producto = new Producto(txtCodigo, txtNombre, txtPrecio, txtCantidad,);
-      inventario.addProduct(producto);
+      if (inventario.addProduct(producto)) {
+        console.log('producto agregado');
+      } else {
+        console.log('no agregado');
+      }
       console.log(inventario.lista);
-      console.log(producto.Codigo);
+
       //Reiniciar valores del form:
       document.getElementById('txtNombre').value = '';
       document.getElementById('txtCodigo').value = '';
@@ -113,9 +117,9 @@
       document.getElementById('txtCodigo').value = "";
 
       //Resultado de la busqueda:
-      let qry = inventario.eliminar(txtCodigo);
-      //Validacion del contenido de la query
-      if (qry == null) {
+      inventario.eliminar(txtCodigo);
+      //Validacion del contenido de lZa query
+      if (inventario.eliminar(txtCodigo) === null) {
         divShow.innerHTML += '<br>El producto no existe';
         console.log(txtCodigo);
       } else {
@@ -130,9 +134,9 @@
       document.getElementById('txtCodigo').value = "";
 
       //Resultado de la busqueda:
-      let qry = inventario.buscar(txtCodigo);
+
       //Validacion del contenido de la query
-      if (qry == null) {
+      if (inventario.buscar(txtCodigo) === null) {
         divShow.innerHTML += '<br>El producto no existe';
 
       } else {
