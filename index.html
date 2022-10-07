@@ -129,18 +129,18 @@
     });
 
     btnSearch.addEventListener('click', () => {
-      let txtCodigo = document.getElementById('txtCodigo').value;
+      let txtCodigo = parseInt(document.getElementById('txtCodigo').value);
       console.log(inventario.buscar(txtCodigo));
       document.getElementById('txtCodigo').value = "";
 
       //Resultado de la busqueda:
-
+      let query = inventario.buscar(txtCodigo);
       //Validacion del contenido de la query
-      if (inventario.buscar(txtCodigo) === null) {
+      if (query === null) {
         divShow.innerHTML += '<br>El producto no existe';
 
       } else {
-        divShow.innerHTML += '<br> Resultado de busqueda: ' + JSON.stringify(qry) + '<br>';
+        divShow.innerHTML += '<br> Resultado de busqueda: ' + JSON.stringify(query) + '<br>';
       }
     });
 

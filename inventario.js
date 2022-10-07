@@ -3,6 +3,7 @@ class Inventario {
     this.lista = [];
     this.aux;
     this.deleted;
+
   }
   addProduct(producto) {
     //El producto se agrega de manera ascendente por codigo
@@ -23,20 +24,30 @@ class Inventario {
     } else {
       console.log('length 0');
       this.lista.push(producto);
+      return true;
     }
   }
 
   listado(i) {
     return this.lista[i];
   }
+
   buscar(codigoUser) {
-    for (let i = 0; i < this.lista.length; i++) {
-      if (this.lista[i].Codigo == codigoUser) {
-        return this.lista[i];
+    this.derecha = this.lista.length - 1;
+    this.izquierda = 0;
+    while (this.izquierda <= this.derecha) {
+      this.media = Math.trunc((this.izquierda + this.derecha) / 2);
+      if (this.lista[this.media].Codigo == codigoUser) {
+        return this.lista[this.media];
+      } else if (this.lista[this.media].Codigo > codigoUser) {
+        this.derecha = this.media - 1;
+      } else {
+        this.izquierda = this.media + 1;
       }
     }
     return null;
   }
+
   eliminar(codigoUser) {
     for (let i = 0; i < this.lista.length; i++) {
       if (this.lista[i].Codigo == codigoUser) {
