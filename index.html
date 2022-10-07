@@ -88,11 +88,15 @@
       let txtCodigo = document.getElementById('txtCodigo').value;
       let txtPos = parseInt(document.getElementById('txtPos').value - 1);
       console.log(txtNombre, txtCodigo);
-      inventario.insertar(txtNombre, txtCodigo, txtPos)
       //Borrar lo anterior para mostrar una lista nueva cada vez:
       divShow.innerHTML = '';
-      //Los objetos son retornados uno por uno.
-      mostrarLista();
+      if (inventario.insertar(txtCodigo, txtPos) == null) {
+        divShow.innerHTML += 'Agregue un codigo';
+      } else if (inventario.insertar(txtCodigo, txtPos)) {
+        mostrarLista();
+      } else {
+        divShow.innerHTML += 'El producto no existe';
+      }
     });
     btnDelete.addEventListener('click', () => {
       let txtCodigo = document.getElementById('txtCodigo').value;
@@ -138,8 +142,7 @@
     btnInverso.addEventListener('click', () => {
       divShow.innerHTML = '';
       //Se hace la inversion del arreglo principal y se retorna ya invertido:
-      inventario.listadoInverso();
-      mostrarLista();
+      mostrarInverso();
     });
   </script>
 </body>

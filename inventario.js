@@ -10,13 +10,6 @@ class Inventario {
       listado(i) {
         return this.lista[i];
       }
-      listadoInverso() {
-        for (let j = 0, k = this.lista.length - 1; j < this.lista.length / 2; j++, k--) {
-          this.aux = this.lista[j];
-          this.lista[j] = this.lista[k];
-          this.lista[k] = this.aux;
-        }
-      }
       buscar(codigoUser) {
         for (let i = 0; i < this.lista.length; i++) {
           if (this.lista[i].Codigo == codigoUser) {
@@ -45,9 +38,12 @@ class Inventario {
               this.aux = this.lista[posicion];
               this.lista[posicion] = this.lista[i];
               this.lista[i] = this.aux;
+              return true;
             }
           }
+          return false;
+        }else{
+          return null;
         }
-        return null;
       }
     }
