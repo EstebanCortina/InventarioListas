@@ -46,10 +46,12 @@
   <div>
     <button type="button" id="btnDelete">ELIMINAR</button>
   </div>
-  <div>
+
+  <!-- <div>
     Insertar en posicion: <input type="text" id="txtPos">
     <button type="button" id="btnInsert">INSERTAR</button>
   </div>
+  !-->
   <div id="show">
   </div>
 </form>
@@ -64,7 +66,9 @@
     const btnInverso = document.getElementById('btnInverso');
     const btnSearch = document.getElementById('btnSearch');
     const btnDelete = document.getElementById('btnDelete');
+    /*
     const btnInsert = document.getElementById('btnInsert');
+    */
 
 
     btnSend.addEventListener('click', () => {
@@ -83,6 +87,7 @@
       document.getElementById('txtCantidad').value = '';
     });
 
+    /*
     btnInsert.addEventListener('click', () => {
       let txtNombre = document.getElementById('txtNombre').value;
       let txtCodigo = document.getElementById('txtCodigo').value;
@@ -98,6 +103,8 @@
         divShow.innerHTML += 'El producto no existe';
       }
     });
+    */
+
     btnDelete.addEventListener('click', () => {
       let txtCodigo = document.getElementById('txtCodigo').value;
       //console.log(inventario.eliminar(txtCodigo));

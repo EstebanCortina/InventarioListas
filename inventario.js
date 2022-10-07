@@ -5,6 +5,8 @@ class Inventario {
         this.deleted;
       }
       addProduct(producto) {
+        //El producto se agrega de manera ascendente por codigo
+
         this.lista.push(producto);
       }
       listado(i) {
@@ -31,6 +33,7 @@ class Inventario {
         }
         return null;
       }
+      /*
       insertar(codigoUser, posicion) {
         if (codigoUser) {
           for (let i = 0; i < this.lista.length; i++) {
@@ -46,4 +49,6 @@ class Inventario {
           return null;
         }
       }
+      */
+     
     }
