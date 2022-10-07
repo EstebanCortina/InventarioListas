@@ -28,7 +28,7 @@ class Inventario {
       eliminar(codigoUser) {
         for (let i = 0; i < this.lista.length; i++) {
           if (this.lista[i].Codigo == codigoUser) {
-            //Saber que producto se eliminara
+            //Saber que producto se eliminara//
             this.deleted = this.lista[i];
             this.aux = this.lista[this.lista.length - 1];
             this.lista[i] = this.aux;

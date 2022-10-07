@@ -4,6 +4,5 @@
         this.Nombre = nombre;
         this.Precio = precio;
         this.Cantidad = cantidad;
-        this.prueba;
       }
     }
