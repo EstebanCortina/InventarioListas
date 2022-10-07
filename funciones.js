@@ -9,4 +9,5 @@ function mostrarInverso() {
         console.log(inventario.listado(i))
         divShow.innerHTML += JSON.stringify(inventario.listado(i)) + '<br>';
       }
+      
 }
