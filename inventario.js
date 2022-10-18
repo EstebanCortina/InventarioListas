@@ -1,32 +1,23 @@
 class Inventario {
   constructor() {
-    this.lista = [];
-    this.aux;
-    this.deleted;
+    this.lista = null;
+    this.primero = null;
+  }
+  addProduct(nuevoP) {
+    //El producto se agrega de manera ascendente por codigo
+    if (this.primero == null) {
+      this.primero = nuevoP;
+    } else {
+      let temp = this.primero;
+      while (temp.next != null) {
+        temp = temp.next;
+      }
+      temp.next = nuevoP;
+    }
 
   }
-  addProduct(producto) {
-    //El producto se agrega de manera ascendente por codigo
-    if (this.lista.length > 0) {
-      this.lista.push(producto);
-      for (let i = this.lista.length - 2; i >= 0; i--) {
-        console.log(this.lista.length);
-        if (producto.Codigo <= this.lista[i].Codigo) {
-          console.log(producto.Codigo + 'menor que ' + this.lista[i].Codigo);
-          this.aux = this.lista[i];
-          this.lista[i] = producto;
-          this.lista[i + 1] = this.aux;
-        } else {
-          console.log(producto.Codigo + 'mayor que ' + this.lista[i].Codigo);
-        }
-      }
-      return true;
-    } else {
-      console.log('length 0');
-      this.lista.push(producto);
-      return true;
-    }
-  }
+
+
 
   listado(i) {
     return this.lista[i];
