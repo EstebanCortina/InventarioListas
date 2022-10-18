@@ -1,14 +1,14 @@
 function mostrarLista() {
   if (this.primero == null) {
-    return false;
+    return null;
   } else {
     let temp = this.primero;
     let aux = '';
     while (temp.next != null) {
-      aux += temp;
+      aux += JSON.stringify(temp.Codigo + temp.Nombre + temp.Precio + temp.Cantidad) + '<br>';
       temp = temp.next;
     }
-    temp.next = nuevoP;
+    return aux;
   }
 }
 function mostrarInverso() {
